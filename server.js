@@ -1618,7 +1618,7 @@ app.get('/api/backup/download', authMiddleware, adminOnly, async (req, res) => {
     ]);
 
     const backupData = {
-      system: 'VALEVENTAS POS by VT VALETEC',
+      system: 'VALE-LENTES POS Óptica by VT VALETEC',
       version: '2.0',
       exported_at: new Date().toISOString(),
       exported_by: {
@@ -1667,5 +1667,5 @@ app.get('*', (req, res) => {
 });
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Servidor VALEVENTAS (Anti-Fuerza Bruta + WebSockets Socket.io + PostgreSQL Enterprise) activo en http://localhost:${PORT}`);
+  console.log(`🚀 Servidor VALE-LENTES POS Óptica (Anti-Fuerza Bruta + WebSockets Socket.io + PostgreSQL Enterprise) activo en http://localhost:${PORT}`);
 });

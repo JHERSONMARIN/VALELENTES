@@ -46,11 +46,6 @@ async function initDb(retries = 8, delay = 2000) {
         ('Lentes de Contacto'), ('Soluciones y Gotas'), ('Accesorios y Estuches'), 
         ('Servicios de Optometría')
       ON CONFLICT (name) DO NOTHING;
-
-      INSERT INTO categories (name) 
-      SELECT DISTINCT category FROM products 
-      WHERE category IS NOT NULL AND TRIM(category) != '' 
-      ON CONFLICT (name) DO NOTHING;
     `);
 
     // 1. PRODUCTOS
@@ -67,6 +62,11 @@ async function initDb(retries = 8, delay = 2000) {
         created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
       );
       CREATE INDEX IF NOT EXISTS idx_products_code ON products(code);
+
+      INSERT INTO categories (name) 
+      SELECT DISTINCT category FROM products 
+      WHERE category IS NOT NULL AND TRIM(category) != '' 
+      ON CONFLICT (name) DO NOTHING;
     `);
 
     // 2. CLIENTES
