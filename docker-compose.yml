@@ -1,0 +1,58 @@
+# ==========================================
+# Docker Compose para VALE-LENTES by VT VALETEC
+# Orquestación: PostgreSQL 16 + Backend Node.js + Frontend Nginx
+# ==========================================
+
+services:
+  # Base de Datos Relacional PostgreSQL 16
+  valelentes-db:
+    image: postgres:16-alpine
+    container_name: valelentes-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-valetec}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-valetec_secure_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-valelentes_db}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT_EXTERNAL:-5448}:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-valetec} -d ${POSTGRES_DB:-valelentes_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Servicio de Backend (API Node.js + Express)
+  valelentes-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: valelentes-backend
+    restart: always
+    ports:
+      - "${BACKEND_PORT:-8098}:8090"
+    environment:
+      - PORT=8090
+      - NODE_ENV=${NODE_ENV:-production}
+      - POSTGRES_HOST=valelentes-db
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=${POSTGRES_USER:-valetec}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-valetec_secure_pass}
+      - POSTGRES_DB=${POSTGRES_DB:-valelentes_db}
+      - JWT_SECRET=${JWT_SECRET:-valelentes_jwt_super_secret_key_2026}
+    depends_on:
+      valelentes-db:
+        condition: service_healthy
+
+  # Servicio de Frontend (Nginx Reverse Proxy & Static UI)
+  valelentes-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: valelentes-frontend
+    restart: always
+    ports:
+      - "${FRONTEND_PORT:-3008}:80"
+    depends_on:
+      - valelentes-backend
