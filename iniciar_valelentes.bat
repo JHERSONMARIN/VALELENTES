@@ -40,11 +40,15 @@ powershell -NoProfile -Command "for ($i=0; $i -lt 15; $i++) { try { $r = [System
 echo.
 echo ============================================================
 echo  [EXITO] Sistema activo y base de datos conectada.
-echo  Abriendo VALE-LENTES en tu Navegador Predeterminado...
+echo  Abriendo VALE-LENTES en Modo Aplicacion de Escritorio...
 echo ============================================================
 echo.
 
-:: 4. Abrir en el Navegador Predeterminado de Windows
-start "" "http://localhost:3008"
+:: 4. Abrir en Modo Aplicacion (Ventana limpia sin buscador ni barra de URL) con el navegador preferido
+if exist "%~dp0abrir_navegador_app.ps1" (
+    powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0abrir_navegador_app.ps1"
+) else (
+    start "" "http://localhost:3008"
+)
 
 exit
