@@ -804,7 +804,7 @@
                 <label class="text-xs font-bold text-slate-700 block mb-1">Nombre Comercial / Razón Social de la Tienda
                   *</label>
                 <input type="text" id="setting-company-name-view" oninput="syncCompanyPreview()" required
-                  placeholder="ej. BODEGA Y MARKET DON JOSÉ"
+                  placeholder="ej. ÓPTICA VALE-LENTES"
                   class="w-full p-3 border border-slate-300 rounded-xl text-sm font-bold text-slate-900 outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50 focus:bg-white transition-all">
                 <p class="text-[10px] text-slate-400 mt-0.5">Nombre que saldrá impreso en la cabecera principal de los
                   comprobantes.</p>
@@ -835,7 +835,7 @@
               <div>
                 <label class="text-xs font-bold text-slate-700 block mb-1">Mensaje de Despedida al Pie del Ticket</label>
                 <textarea id="setting-company-footer-view" oninput="syncCompanyPreview()" rows="2"
-                  placeholder="ej. ¡Gracias por su preferencia! Vuelva pronto."
+                  placeholder="ej. ¡Gracias por su preferencia! Su salud visual en las mejores manos."
                   class="w-full p-2.5 border border-slate-300 rounded-xl text-xs font-medium outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50 focus:bg-white"></textarea>
               </div>
 
@@ -861,7 +861,7 @@
             <div
               class="w-full max-w-[280px] bg-white rounded-2xl p-4 shadow-md font-mono text-[11px] border border-slate-200 text-slate-800 space-y-2.5">
               <div class="text-center border-b border-dashed border-slate-300 pb-2.5">
-                <h4 class="font-black text-xs text-slate-900 leading-tight" id="prev-company-name">MI BODEGA</h4>
+                <h4 class="font-black text-xs text-slate-900 leading-tight" id="prev-company-name">ÓPTICA VALE-LENTES</h4>
                 <p class="text-[9px] text-slate-500 font-sans" id="prev-company-address">Av. Principal 123</p>
                 <p class="text-[10px] font-bold text-slate-700 mt-0.5" id="prev-company-ruc">RUC: 20123456789</p>
                 <p class="text-[9px] text-slate-500" id="prev-company-phone">Telf: 987654321</p>
@@ -885,26 +885,26 @@
                   <span class="col-span-3 text-right">TOTAL</span>
                 </div>
                 <div class="grid grid-cols-12 py-1 text-slate-800">
-                  <span class="col-span-2 text-center font-bold">2</span>
-                  <span class="col-span-5 truncate">Arroz 1kg</span>
-                  <span class="col-span-2 text-right">4.50</span>
-                  <span class="col-span-3 text-right font-bold">9.00</span>
+                  <span class="col-span-2 text-center font-bold">1</span>
+                  <span class="col-span-5 truncate">Montura Modena</span>
+                  <span class="col-span-2 text-right">120.00</span>
+                  <span class="col-span-3 text-right font-bold">120.00</span>
                 </div>
                 <div class="grid grid-cols-12 py-1 text-slate-800">
                   <span class="col-span-2 text-center font-bold">1</span>
-                  <span class="col-span-5 truncate">Aceite 1L</span>
-                  <span class="col-span-2 text-right">9.20</span>
-                  <span class="col-span-3 text-right font-bold">9.20</span>
+                  <span class="col-span-5 truncate">Lunas Antirréflex</span>
+                  <span class="col-span-2 text-right">85.00</span>
+                  <span class="col-span-3 text-right font-bold">85.00</span>
                 </div>
               </div>
 
               <!-- DESGLOSE FISCAL -->
               <div class="space-y-0.5 text-[10px] text-slate-600">
-                <div class="flex justify-between"><span>Op. Gravada:</span><span class="font-bold">S/ 15.42</span></div>
-                <div class="flex justify-between"><span>I.G.V. (18%):</span><span class="font-bold">S/ 2.78</span></div>
+                <div class="flex justify-between"><span>Op. Gravada:</span><span class="font-bold">S/ 173.73</span></div>
+                <div class="flex justify-between"><span>I.G.V. (18%):</span><span class="font-bold">S/ 31.27</span></div>
                 <div class="flex justify-between text-xs font-black text-slate-900 pt-1 border-t border-slate-200">
                   <span>TOTAL A PAGAR:</span>
-                  <span class="text-blue-700">S/ 18.20</span>
+                  <span class="text-blue-700">S/ 205.00</span>
                 </div>
               </div>
 
@@ -913,7 +913,7 @@
                 <p class="text-[9px] text-slate-600 italic" id="prev-company-footer">¡Gracias por su preferencia!</p>
                 <div
                   class="pt-1.5 border-t border-dotted border-slate-300 text-[8px] text-slate-400 font-sans leading-tight">
-                  <p class="font-bold text-slate-700 tracking-wider">VALEVENTAS POS</p>
+                  <p class="font-bold text-slate-700 tracking-wider">VALE-LENTES POS</p>
                   <p>Desarrollado por <span class="font-bold text-slate-700">VT VENTAS</span> | <span
                       class="font-bold text-blue-600">VT VALETEC</span></p>
                 </div>
@@ -1120,7 +1120,7 @@
 
         <div>
           <label class="text-xs font-bold text-slate-600 block mb-1">Proveedor / Observaciones (Opcional)</label>
-          <input type="text" id="stock-intake-notes" placeholder="ej. Alicorp Perú S.A.A."
+          <input type="text" id="stock-intake-notes" placeholder="ej. Laboratorios Oftálmicos / Luxottica Perú"
             class="w-full p-2.5 border border-slate-300 rounded-xl text-xs outline-none">
         </div>
 
@@ -1342,7 +1342,7 @@
 
             <div>
               <label class="text-xs font-bold text-slate-700 block mb-1">Nombre del Producto *</label>
-              <input type="text" id="prod-name" required placeholder="ej. Arroz Superior Costeño 1kg"
+              <input type="text" id="prod-name" required placeholder="ej. Montura Acetato Modena Unisex Negro"
                 class="w-full p-2.5 border border-slate-300 rounded-xl text-xs sm:text-sm font-semibold outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50 focus:bg-white transition-colors">
             </div>
 
@@ -1469,7 +1469,7 @@
 
       <!-- FORMULARIO CREAR CATEGORÍA -->
       <form onsubmit="handleCreateCategory(event)" class="flex gap-2 shrink-0">
-        <input type="text" id="new-category-input" required placeholder="Nombre (ej. Mascotas, Licores)..."
+        <input type="text" id="new-category-input" required placeholder="Nombre (ej. Líquidos Oftálmicos, Cordones)..."
           class="flex-1 p-2.5 border border-slate-300 rounded-xl text-xs font-bold outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50 focus:bg-white shadow-inner">
         <button type="submit"
           class="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-4 py-2.5 rounded-xl font-bold text-xs shadow-md shadow-indigo-500/20 flex items-center gap-1.5 shrink-0 transition-all hover:scale-105 active:scale-95">

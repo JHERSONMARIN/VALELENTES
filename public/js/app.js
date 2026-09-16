@@ -3578,7 +3578,7 @@ function populateCompanySettingsView() {
 }
 
 function syncCompanyPreview() {
-  const name = document.getElementById('setting-company-name-view')?.value.trim() || 'MI BODEGA';
+  const name = document.getElementById('setting-company-name-view')?.value.trim() || 'ÓPTICA VALE-LENTES';
   const ruc = document.getElementById('setting-company-ruc-view')?.value.trim() || '20123456789';
   const addr = document.getElementById('setting-company-address-view')?.value.trim() || 'Av. Principal 123';
   const phone = document.getElementById('setting-company-phone-view')?.value.trim() || '987654321';
