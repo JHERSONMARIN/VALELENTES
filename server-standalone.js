@@ -1109,6 +1109,15 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.log(`ℹ️ El servidor VALE-LENTES ya está activo en el puerto ${PORT}`);
+    process.exit(0);
+  } else {
+    console.error('❌ Error en el servidor:', err);
+  }
+});
+
 db.getDB().then(() => {
   server.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Servidor Standalone VALE-LENTES POS Óptica (SQLite Autónomo) activo en http://localhost:${PORT}`);
