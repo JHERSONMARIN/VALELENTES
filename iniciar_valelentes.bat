@@ -1,32 +1,29 @@
 @echo off
-title VALE-LENTES by VT VALETEC - Iniciador POS Óptica
+chcp 65001 >nul
+title VALE-LENTES by VT VALETEC - Iniciador POS Optica
 color 0A
 cls
 
+cd /d "%~dp0"
+
 echo ============================================================
-echo      VALE-LENTES by VT VALETEC - Sistema POS & Óptica
+echo      VALE-LENTES by VT VALETEC - Sistema POS y Optica
 echo ============================================================
 echo.
 
-cd /d "%~dp0"
-
-:: 1. Detectar Node.js (Local portable o del Sistema)
+:: 1. Detectar Node.js (Local portable en bin\ o en el Sistema)
 set "NODE_CMD="
-if exist "%~dp0bin\node.exe" (
-    set "NODE_CMD=%~dp0bin\node.exe"
-) else if exist "%~dp0runtime\node.exe" (
-    set "NODE_CMD=%~dp0runtime\node.exe"
-) else (
+if exist "%~dp0bin\node.exe" set "NODE_CMD=%~dp0bin\node.exe"
+if "%NODE_CMD%"=="" if exist "%~dp0runtime\node.exe" set "NODE_CMD=%~dp0runtime\node.exe"
+if "%NODE_CMD%"=="" if exist "bin\node.exe" set "NODE_CMD=bin\node.exe"
+if "%NODE_CMD%"=="" (
     where node >nul 2>nul
-    if %errorlevel% equ 0 (
-        set "NODE_CMD=node"
-    )
+    if %errorlevel% equ 0 set "NODE_CMD=node"
 )
 
 if "%NODE_CMD%"=="" (
-    echo  [ERROR] No se encontro Node.js en el sistema ni en la carpeta local.
-    echo  Por favor instale Node.js LTS (descargable desde https://nodejs.org)
-    echo  o coloque node.exe dentro de la carpeta 'bin'.
+    echo  [ERROR] No se encontro Node.js en la carpeta local ni en el sistema.
+    echo  Verifique que el archivo bin\node.exe se encuentre en la carpeta de instalacion.
     echo.
     pause
     exit /b 1
