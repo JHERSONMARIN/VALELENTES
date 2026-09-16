@@ -8,3 +8,4 @@ dist/
 build/
 bin/
 *.zip
+*.exe
