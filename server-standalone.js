@@ -1109,6 +1109,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Servidor Standalone VALE-LENTES POS Óptica (SQLite Autónomo) activo en http://localhost:${PORT}`);
+db.getDB().then(() => {
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Servidor Standalone VALE-LENTES POS Óptica (SQLite Autónomo) activo en http://localhost:${PORT}`);
+  });
+}).catch(err => {
+  console.error('❌ Error inicializando base de datos SQLite:', err);
 });
