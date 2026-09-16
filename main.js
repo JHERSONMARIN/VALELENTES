@@ -16,7 +16,8 @@ function createWindow() {
     height: 768,
     minWidth: 1024,
     minHeight: 700,
-    title: 'VALEVENTAS by VT VALETEC - Sistema POS & Fiados',
+    title: 'VALE-LENTES POS Óptica by VT VALETEC',
+    icon: path.join(__dirname, 'public', 'img', 'logo.png'),
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: false,
@@ -27,9 +28,10 @@ function createWindow() {
   // Ocultar la barra de menú predeterminada de Electron
   Menu.setApplicationMenu(null);
 
-  // Cargar la URL local servida por Express
+  // Cargar la URL local servida por el sistema
+  const targetPort = process.env.FRONTEND_PORT || 3008;
   setTimeout(() => {
-    mainWindow.loadURL('http://localhost:8090');
+    mainWindow.loadURL(`http://localhost:${targetPort}`);
   }, 1200);
 
   mainWindow.on('closed', () => {
