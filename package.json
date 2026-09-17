@@ -7,6 +7,8 @@
     "start": "node server.js",
     "start:standalone": "node server-standalone.js",
     "dev": "node --watch server.js",
+    "build:obf": "node obfuscate.js",
+    "build:installer": "powershell -ExecutionPolicy Bypass -File ./build-dist.ps1",
     "electron": "electron .",
     "dist": "electron-builder"
   },

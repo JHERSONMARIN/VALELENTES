@@ -313,7 +313,8 @@
           <div class="relative">
             <i class="fa-solid fa-barcode absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
             <input type="text" id="search-input" oninput="renderProducts()"
-              placeholder="Escanear código de barras o escribir producto..."
+              autocomplete="off" autocapitalize="none" spellcheck="false"
+              placeholder="Escanear código o buscar montura, lunas, lentes, gotas..."
               class="w-full pl-10 pr-16 py-2.5 rounded-xl border border-slate-200 text-xs sm:text-sm outline-none focus:ring-2 focus:ring-blue-500 font-medium bg-slate-50">
             <span
               class="absolute right-3 top-2.5 bg-slate-200 text-slate-600 text-[10px] font-bold px-2 py-1 rounded-md hidden sm:inline">Enter
@@ -372,7 +373,7 @@
           </h2>
           <div class="flex flex-wrap gap-2 w-full sm:w-auto">
             <button onclick="confirmBulkCatalogLoad()"
-              class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-colors admin-only" title="Cargar 28 productos esenciales peruanos con stock inicial">
+              class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-2.5 rounded-xl font-bold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-colors admin-only" title="Cargar 28 productos y servicios base de óptica con stock inicial">
               <i class="fa-solid fa-boxes-packing text-emerald-200"></i> Cargar Catálogo Base
             </button>
             <button onclick="openManageCategoriesModal()"
@@ -399,7 +400,8 @@
           <div
             class="p-3 sm:p-4 border-b border-slate-200 bg-slate-50 flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
             <input type="text" id="inventory-search" oninput="renderInventoryTable()"
-              placeholder="Buscar producto en almacén..."
+              autocomplete="off" autocapitalize="none" spellcheck="false"
+              placeholder="Buscar montura, lunas o accesorio en almacén..."
               class="flex-1 px-4 py-2 rounded-lg border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-blue-500">
             <div class="flex flex-wrap gap-2 items-center">
               <select id="inventory-category-filter" onchange="renderInventoryTable()"
@@ -477,6 +479,7 @@
           <div
             class="p-3 sm:p-4 border-b border-slate-200 bg-slate-50 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
             <input type="text" id="fiado-search-input" oninput="renderFiadosTable()"
+              autocomplete="off" autocapitalize="none" spellcheck="false"
               placeholder="Buscar cliente por DNI/RUC o Nombre..."
               class="flex-1 px-4 py-2 rounded-lg border border-slate-300 text-xs sm:text-sm focus:outline-none focus:border-amber-500">
             <div class="flex gap-2">
@@ -563,6 +566,7 @@
             <div class="w-full md:w-72 relative">
               <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
               <input type="text" id="rep-search-input" oninput="loadSalesHistory()"
+                autocomplete="off" autocapitalize="none" spellcheck="false"
                 placeholder="Buscar por N° Ticket o Cliente..."
                 class="w-full pl-9 pr-3 py-1.5 border border-slate-300 rounded-xl text-xs font-medium outline-none focus:ring-2 focus:ring-blue-500">
             </div>
@@ -1075,9 +1079,9 @@
           <select id="stock-intake-movement-type"
             class="w-full p-2.5 border border-slate-300 rounded-xl text-xs font-bold outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50">
             <option value="INGRESO">🟢 INGRESO DE STOCK (+ Reabastecimiento / Compra)</option>
-            <option value="MERMA">🔴 MERMA (- Vencido / Dañado / Roto)</option>
-            <option value="CORTESIA">🔵 CORTESÍA (- Degustación / Muestra)</option>
-            <option value="SALIDA_INTERNA">🟠 SALIDA INTERNA (- Consumo de Local)</option>
+            <option value="MERMA">🔴 MERMA (- Dañado / Defectuoso / Roto)</option>
+            <option value="CORTESIA">🔵 CORTESÍA (- Garantía / Muestra / Atención)</option>
+            <option value="SALIDA_INTERNA">🟠 SALIDA INTERNA (- Uso Interno del Local)</option>
           </select>
         </div>
 
@@ -1413,7 +1417,8 @@
           <div class="relative">
             <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-slate-400 text-xs"></i>
             <input type="text" id="preset-search-input" oninput="filterProductPresets()"
-              placeholder="Buscar por nombre o categoría..."
+              autocomplete="off" autocapitalize="none" spellcheck="false"
+              placeholder="Buscar montura, lunas o servicio..."
               class="w-full pl-8 pr-3 py-1.5 border border-slate-200 rounded-xl text-xs bg-white outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 font-medium">
           </div>
 
@@ -1578,6 +1583,7 @@
           <div class="relative">
             <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-slate-400 text-xs"></i>
             <input type="text" id="cust-search-input" oninput="filterCustomerSearchResults()"
+              autocomplete="off" autocapitalize="none" spellcheck="false"
               onfocus="showCustomerSearchResults()" placeholder="Buscar por Nombre o DNI/RUC..."
               class="w-full pl-9 pr-8 py-2.5 border border-slate-300 rounded-xl text-xs font-bold text-slate-800 outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50">
             <button type="button" onclick="clearCustomerSearch()" id="btn-clear-cust-search"
@@ -1593,12 +1599,13 @@
               <span id="cust-selected-text" class="font-bold text-blue-900 truncate">Público General</span>
             </div>
             <button type="button" onclick="clearCustomerSearch()"
-              class="text-blue-600 hover:text-blue-800 font-bold text-[11px] underline whitespace-nowrap">Cambiar</button>
+              class="text-slate-400 hover:text-rose-500 font-bold px-1"><i
+                class="fa-solid fa-xmark text-sm"></i></button>
           </div>
 
-          <!-- Desplegable flotante de resultados en vivo -->
+          <!-- Dropdown con los resultados flotantes -->
           <div id="cust-search-results"
-            class="hidden absolute left-0 right-0 top-full mt-1 bg-white rounded-2xl border border-slate-200 shadow-2xl z-50 max-h-56 overflow-y-auto divide-y divide-slate-100 font-medium">
+            class="hidden absolute z-50 left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-xl max-h-48 overflow-y-auto custom-scrollbar divide-y divide-slate-100">
           </div>
         </div>
 
@@ -1642,11 +1649,13 @@
             <div>
               <label class="text-[10px] font-bold text-slate-600">RUC (11 Dígitos) *</label>
               <input type="text" id="factura-ruc" maxlength="11" placeholder="ej. 10458923011"
+                autocomplete="off" autocapitalize="none" spellcheck="false"
                 class="w-full p-2 border border-slate-300 rounded-lg text-xs font-bold outline-none focus:ring-2 focus:ring-amber-500 bg-white">
             </div>
             <div>
               <label class="text-[10px] font-bold text-slate-600">Razón Social *</label>
-              <input type="text" id="factura-razon" placeholder="ej. Comercial Don José S.A.C."
+              <input type="text" id="factura-razon" placeholder="ej. Distribuidora Óptica Visual S.A.C."
+                autocomplete="off" autocapitalize="none" spellcheck="false"
                 class="w-full p-2 border border-slate-300 rounded-lg text-xs font-bold outline-none focus:ring-2 focus:ring-amber-500 bg-white">
             </div>
           </div>
@@ -1677,7 +1686,7 @@
               <i class="fa-solid fa-hand-holding-dollar text-sm sm:text-base text-amber-600"></i> FIADO
             </button>
             <button type="button" onclick="selectPaymentMethod('Cortesia')" id="pay-cortesia"
-              class="pay-method-btn bg-pink-50 border border-pink-200 text-pink-900 font-bold p-2 sm:p-2.5 rounded-xl text-[11px] sm:text-xs flex flex-col items-center gap-1 hover:bg-pink-100" title="Consumo sin costo / muestra / degustación">
+              class="pay-method-btn bg-pink-50 border border-pink-200 text-pink-900 font-bold p-2 sm:p-2.5 rounded-xl text-[11px] sm:text-xs flex flex-col items-center gap-1 hover:bg-pink-100" title="Atención sin costo / garantía / cortesía por montura">
               <i class="fa-solid fa-gift text-sm sm:text-base text-pink-600"></i> Cortesía
             </button>
           </div>
@@ -1705,12 +1714,13 @@
         <!-- BOX CORTESÍA -->
         <div id="cortesia-box" class="hidden bg-pink-50/80 p-3 rounded-2xl border border-pink-200 space-y-2">
           <p class="text-xs font-black text-pink-900 flex items-center gap-1.5">
-            <i class="fa-solid fa-gift text-pink-600"></i> Registro de Cortesía / Degustación
+            <i class="fa-solid fa-gift text-pink-600"></i> Registro de Cortesía / Atención Especial
           </p>
           <p class="text-[11px] text-pink-700">El total se registrará como S/ 0.00 al cliente y se descontará del inventario sin ingresar efectivo a caja.</p>
           <div>
             <label class="text-[10px] font-bold text-slate-600">Motivo de la Cortesía *</label>
-            <input type="text" id="cortesia-reason" placeholder="ej. Degustación de cliente, Atención especial, Muestra..."
+            <input type="text" id="cortesia-reason" placeholder="ej. Cortesía por compra de montura, Garantía de lunas, Muestra..."
+              autocomplete="off" autocapitalize="none" spellcheck="false"
               class="w-full p-2 border border-slate-300 rounded-lg text-xs font-semibold outline-none focus:ring-2 focus:ring-pink-500 bg-white">
           </div>
         </div>
@@ -2068,7 +2078,7 @@
         </div>
         <div>
           <label class="text-xs font-bold text-slate-600 block mb-1">Mensaje de Despedida / Pie de Ticket</label>
-          <textarea id="setting-company-footer" rows="2" placeholder="ej. ¡Gracias por su compra! Vuelva pronto."
+          <textarea id="setting-company-footer" rows="2" placeholder="ej. ¡Gracias por su preferencia! Su salud visual en las mejores manos."
             class="w-full p-2.5 border border-slate-300 rounded-xl text-xs outline-none focus:ring-2 focus:ring-blue-500 font-medium"></textarea>
         </div>
 
@@ -2105,7 +2115,7 @@
         <div>
           <label class="text-xs font-bold text-slate-600 block mb-1">Motivo / Concepto del Retiro *</label>
           <textarea id="withdrawal-reason" required rows="3"
-            placeholder="Ej. Pago a proveedor de mercadería / Retiro parcial de efectivo"
+            placeholder="Ej. Pago a proveedor de monturas/lunas / Retiro de efectivo"
             class="w-full p-2.5 border border-slate-300 rounded-xl text-xs font-bold outline-none focus:ring-2 focus:ring-rose-500"></textarea>
         </div>
         <div class="flex justify-end gap-2 pt-3 border-t border-slate-100">
